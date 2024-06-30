@@ -1,11 +1,17 @@
-import { useState } from "react";
-import { Badge } from "./components/ui/badge";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Layout from "./layout/Layout";
 
 function App() {
   return (
-    <>
-      <Badge>tes</Badge>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="daerah" element={<p>comming soon</p>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
