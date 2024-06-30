@@ -3,7 +3,7 @@ import { Facebook, Instagram, Twitter } from "lucide-react";
 
 function Footer() {
   return (
-    <footer className="container px-4 py-5 md:py-[60px] space-y-8">
+    <footer className="container py-5 md:py-[60px] space-y-8">
       <div className="flex flex-col gap-6 md:flex-row md:justify-between ">
         <div className="space-y-4 md:max-w-[300px]">
           <img src="/logo.png" alt="" className="h-9" />

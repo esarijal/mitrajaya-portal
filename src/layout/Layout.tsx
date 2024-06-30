@@ -6,7 +6,7 @@ function Layout() {
   return (
     <div className="bg-[#1E232E]">
       <Navbar />
-      <main className="min-h-screen bg-[#1E232E]">
+      <main className="min-h-screen container bg-[#1E232E] pb-[90px]">
         <Outlet />
       </main>
       <Footer />
