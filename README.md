@@ -42,6 +42,18 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/TrendingArticle'
+  /articles/region-trending:
+    get:
+      summary: Get Region Trending Articles
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrendingArticle'
   /articles/latest:
     get:
       summary: Get Latest Articles (Paging, skip top 4)
