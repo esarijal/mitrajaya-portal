@@ -25,11 +25,11 @@ const NewsCard = ({
     return (
       <div
         onClick={handleOnClick}
-        className="flex flex-col-reverse w-full gap-5 md:flex-row"
+        className="flex flex-col-reverse w-full gap-5 cursor-pointer md:flex-row group"
       >
         <div className="flex flex-col justify-between gap-2">
           <div className="flex flex-col w-full space-y-2 md:space-y-3">
-            <h1 className="text-base font-medium line-clamp-3 md:text-[32px] text-primary leading-snug">
+            <h1 className="text-base font-medium line-clamp-3 md:text-[32px] text-primary leading-snug group-hover:underline">
               {title}
             </h1>
             <h2 className="hidden text-xs font-normal md:text-base text-primary-foreground md:line-clamp-2">
@@ -60,7 +60,7 @@ const NewsCard = ({
     return (
       <div
         onClick={handleOnClick}
-        className="w-full space-y-3 article-card md:space-y-4"
+        className="w-full space-y-3 cursor-pointer article-card md:space-y-4 group"
       >
         <img
           src={image}
@@ -68,7 +68,9 @@ const NewsCard = ({
           alt="image"
         />
         <div className="flex flex-col space-y-1 md:space-y-2">
-          <h1 className="font-medium line-clamp-2 text-primary">{title}</h1>
+          <h1 className="font-medium line-clamp-2 text-primary group-hover:underline">
+            {title}
+          </h1>
           <time
             className="text-xs font-normal text-primary-foreground md:text-sm"
             dateTime={date}
@@ -88,7 +90,7 @@ const NewsCard = ({
     return (
       <div
         onClick={handleOnClick}
-        className="flex flex-col w-full gap-3 md:items-center md:flex-row article-card h-fit md:gap-7"
+        className="flex flex-col w-full gap-3 cursor-pointer md:items-center md:flex-row article-card h-fit md:gap-7 group"
       >
         <img
           src={image}
@@ -96,7 +98,7 @@ const NewsCard = ({
           alt="image"
         />
         <div className="flex flex-col space-y-2 md:space-y-4">
-          <h1 className="text-base font-medium text-primary md:text-xl">
+          <h1 className="text-base font-medium text-primary md:text-xl group-hover:underline">
             {title}
           </h1>
           <h2 className="hidden text-base font-normal md:line-clamp-2 text-primary-foreground ">
