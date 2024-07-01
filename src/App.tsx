@@ -6,6 +6,7 @@ import Loader from "./components/custom/loader";
 
 const RegionalNews = lazy(() => import("./pages/RegionalNews"));
 const OtherNewsCategory = lazy(() => import("./pages/OtherNewsCategory"));
+const NewsDetail = lazy(() => import("./pages/NewsDetail"));
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
 
             {/* other news category route */}
             <Route path="/berita/:id/:name" element={<OtherNewsCategory />} />
+
+            {/* news detail */}
+            <Route path="/detail-berita/:id" element={<NewsDetail />} />
           </Route>
         </Routes>
       </Suspense>

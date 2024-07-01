@@ -6,17 +6,25 @@ const NewsCard = ({
   publishDate,
   updateDate,
   id,
+  color = "primary",
 }: {
   size?: "large" | "small" | "regular";
   title: string;
-  subHeading: string;
+  subHeading?: string;
   image: string;
   publishDate: string;
   updateDate: string;
   id: number;
+  color?: "primary" | "secondary";
 }) => {
+  const url = window.location;
+
   const handleOnClick = () => {
-    window.location.href = `/berita/${id}`;
+    if (url.pathname.includes("/daerah")) {
+      window.location.href = `${url.pathname}/${id}`;
+    } else {
+      window.location.href = `/detail-berita/${id}`;
+    }
   };
 
   const date = updateDate > publishDate ? updateDate : publishDate;
@@ -68,7 +76,11 @@ const NewsCard = ({
           alt="image"
         />
         <div className="flex flex-col space-y-1 md:space-y-2">
-          <h1 className="font-medium line-clamp-2 text-primary group-hover:underline group-hover:text-active">
+          <h1
+            className={`font-medium line-clamp-2 ${
+              color === "primary" ? "text-primary" : "text-secondary-foreground"
+            } group-hover:underline group-hover:text-active`}
+          >
             {title}
           </h1>
           <time
