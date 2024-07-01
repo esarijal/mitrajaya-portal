@@ -3,303 +3,620 @@ FIGMA di https://www.figma.com/design/mAb6JkDj9IaabtFucfmVJh/Mitra-Portal?node-i
 ```
 openapi: 3.0.0
 info:
-  title: Article Service API
+  title: Mitra Portal API
   version: 1.0.0
 paths:
   /categories:
     get:
-      summary: Get Categories
+      summary: Get all categories
       responses:
         '200':
-          description: Successful response
+          description: A list of categories
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Category'
-  /articles/top-4-latest:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+  /top4-latest-articles:
     get:
-      summary: Get Top 4 Latest Articles
+      summary: Get top 4 latest articles
       responses:
         '200':
-          description: Successful response
+          description: A list of the top 4 latest articles
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Article'
-  /articles/top-5-trending:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Article'
+
+  /top5-trending-articles:
     get:
-      summary: Get Top 5 Trending Articles
+      summary: Get top 5 trending articles
       responses:
         '200':
-          description: Successful response
+          description: A list of the top 5 trending articles
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/TrendingArticle'
-  /articles/region-trending:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Article'
+
+  /latest-articles:
     get:
-      summary: Get Region Trending Articles
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/TrendingArticle'
-  /articles/latest:
-    get:
-      summary: Get Latest Articles (Paging, skip top 4)
+      summary: Get latest articles with pagination
       parameters:
-        - name: limit
-          in: query
+        - in: query
+          name: page
           schema:
             type: integer
-            default: 10
-          description: Number of articles per page (default 10)
-        - name: offset
-          in: query
+          description: Page number
+        - in: query
+          name: pageSize
           schema:
             type: integer
-            default: 4
-          description: Number of articles to skip (default 4)
+          description: Number of articles per page
       responses:
         '200':
-          description: Successful response
+          description: A paginated list of latest articles
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Article'
-  /tags/recommended:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ArticleResponsePaging'
+
+  /recommended-tags:
     get:
-      summary: Get Recommended Tags (max 10)
+      summary: Get recommended tags
       responses:
         '200':
-          description: Successful response
+          description: A list of recommended tags
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/RecommendedTag'
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tag'
+
   /articles/{article_id}:
     get:
-      summary: Get Article by ID
+      summary: Get article by ID
       parameters:
-        - name: article_id
-          in: path
+        - in: path
+          name: article_id
           required: true
           schema:
             type: integer
-          description: Article ID
+          description: The ID of the article
       responses:
         '200':
-          description: Successful response
+          description: An article
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Article'
-  /tags/{tag}/related:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Article'
+
+  /articles/{article_id}/tags:
     get:
-      summary: Get Related Tags by Tag
+      summary: Get related tags for an article
       parameters:
-        - name: tag
-          in: path
+        - in: path
+          name: article_id
           required: true
           schema:
-            type: string
-          description: Tag name
+            type: integer
+          description: The ID of the article
       responses:
         '200':
-          description: Successful response
+          description: A list of related tags
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/RelatedTag'
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tag'
+
   /articles/{article_id}/comments:
     get:
-      summary: Get Comments by Article ID (Paging)
+      summary: Get comments for an article
       parameters:
-        - name: article_id
-          in: path
+        - in: path
+          name: article_id
           required: true
           schema:
             type: integer
-          description: Article ID
-        - name: limit
-          in: query
-          schema:
-            type: integer
-            default: 10
-          description: Number of comments per page (default 10)
-        - name: offset
-          in: query
-          schema:
-            type: integer
-            default: 0
-          description: Number of comments to skip (default 0)
+          description: The ID of the article
       responses:
         '200':
-          description: Successful response
+          description: A list of comments for the article
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Comment'
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Comment'
+
     post:
-      summary: Post a Comment on an Article
+      summary: Post a comment on an article
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the article
       requestBody:
+        description: Comment object that needs to be added
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NewComment'
-      parameters:
-        - name: article_id
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: Article ID
+              $ref: '#/components/schemas/Comment'
       responses:
         '201':
-          description: Comment posted successfully
-        '400':
-          description: Invalid request body
-    
-  /articles/{article_id}/related-articles:
-    get:
-      summary: Get Related Articles by Article ID (max 3)
-      parameters:
-        - name: article_id
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: Article ID
-      responses:
-        '200':
-          description: Successful response
+          description: Comment created successfully
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Article'
-  /tags/{tag}/published-articles:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                      $ref: '#/components/schemas/Comment'
+
+  /articles/{article_id}/related:
     get:
-      summary: Get Published Articles by Tag (Paging, max 10)
+      summary: Get related articles
       parameters:
-        - name: tag
-          in: path
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the article
+      responses:
+        '200':
+          description: A list of related articles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Article'
+
+  /tags/{tag}/articles:
+    get:
+      summary: Get published articles by tag
+      parameters:
+        - in: path
+          name: tag
           required: true
           schema:
             type: string
-          description: Tag name
-        - name: limit
-          in: query
+          description: The name of the tag
+        - in: query
+          name: page
           schema:
             type: integer
-            default: 10
-          description: Number of articles per page (default 10)
-        - name: offset
-          in: query
+          description: Page number
+        - in: query
+          name: pageSize
           schema:
             type: integer
-            default: 0
-          description: Number of articles to skip (default 0)
+          description: Number of articles per page
       responses:
         '200':
-          description: Successful response
+          description: A list of published articles by tag
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Article'
-  /provinces/with-published-articles:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ArticleResponsePaging'
+
+  /provinces/published-articles:
     get:
-      summary: Get Provinces That Have Published Articles
+      summary: Get provinces with published articles
       responses:
         '200':
-          description: Successful response
+          description: A list of provinces with published articles
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Province'
-  /provinces/{prov_id}/kotas/with-published-articles:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Province'
+
+  /provinces/{provinceId}/kotas:
     get:
-      summary: Get Cities in a Province That Have Published Articles
+      summary: Get cities in a province with published articles
       parameters:
-        - name: prov_id
-          in: path
+        - in: path
+          name: provinceId
           required: true
           schema:
             type: integer
-          description: Province ID
+          description: The ID of the province
       responses:
         '200':
-          description: Successful response
+          description: A list of cities in the province with published articles
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/City'
-  /cities/{kota_id}/kecamatans/with-published-articles:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Kota'
+
+  /kotas/{kotaId}/kecamatans:
     get:
-      summary: Get Districts in a City That Have Published Articles
+      summary: Get districts in a city with published articles
       parameters:
-        - name: kota_id
-          in: path
+        - in: path
+          name: kotaId
           required: true
           schema:
             type: integer
-          description: City ID
+          description: The ID of the city
       responses:
         '200':
-          description: Successful response
+          description: A list of districts in the city with published articles
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/District'
-  /districts/{kec_id}/kelurahans/with-published-articles:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Kecamatan'
+
+  /kecamatans/{kecamatanId}/kelurahans:
     get:
-      summary: Get Sub-districts in a District That Have Published Articles
+      summary: Get sub-districts in a district with published articles
       parameters:
-        - name: kec_id
-          in: path
+        - in: path
+          name: kecamatanId
           required: true
           schema:
             type: integer
-          description: District ID
+          description: The ID of the district
       responses:
         '200':
-          description: Successful response
+          description: A list of sub-districts in the district with published articles
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Subdistrict'
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Kelurahan'
+
+  /region-trending-articles:
+    get:
+      summary: Get region trending articles
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+          description: Page number
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+          description: Number of articles per page
+      responses:
+        '200':
+          description: A list of region trending articles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ArticleResponsePaging'
+
+  /categories/{category_id}/latest-articles:
+    get:
+      summary: Get latest articles by category
+      parameters:
+        - in: path
+          name: category_id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the category
+        - in: query
+          name: page
+          schema:
+            type: integer
+          description: Page number
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+          description: Number of articles per page
+      responses:
+        '200':
+          description: A list of latest articles by category
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ArticleResponsePaging'
+
+  /provinces/{prov_id}/latest-articles:
+    get:
+      summary: Get latest articles by province
+      parameters:
+        - in: path
+          name: prov_id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the province
+        - in: query
+          name: page
+          schema:
+            type: integer
+          description: Page number
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+          description: Number of articles per page
+      responses:
+        '200':
+          description: A list of latest articles by province
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ArticleResponsePaging'
+
+  /kotas/{kota_id}/latest-articles:
+    get:
+      summary: Get latest articles by city
+      parameters:
+        - in: path
+          name: kota_id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the city
+        - in: query
+          name: page
+          schema:
+            type: integer
+          description: Page number
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+          description: Number of articles per page
+      responses:
+        '200':
+          description: A list of latest articles by city
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ArticleResponsePaging'
+
+  /kecamatans/{kec_id}/latest-articles:
+    get:
+      summary: Get latest articles by district
+      parameters:
+        - in: path
+          name: kec_id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the district
+        - in: query
+          name: page
+          schema:
+            type: integer
+          description: Page number
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+          description: Number of articles per page
+      responses:
+        '200':
+          description: A list of latest articles by district
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ArticleResponsePaging'
+
+  /kelurahans/{kel_id}/latest-articles:
+    get:
+      summary: Get latest articles by sub-district
+      parameters:
+        - in: path
+          name: kel_id
+          required: true
+          schema:
+            type: integer
+          description: The ID of the sub-district
+        - in: query
+          name: page
+          schema:
+            type: integer
+          description: Page number
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+          description: Number of articles per page
+      responses:
+        '200':
+          description: A list of latest articles by sub-district
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ArticleResponsePaging'
+
 components:
   schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+
     Article:
       type: object
       properties:
@@ -309,146 +626,76 @@ components:
           type: string
         content:
           type: string
-        image_url:
+        author:
           type: string
-        status:
-          type: string
-        author_id:
-          type: integer
-        category_id:
-          type: integer
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        prov_id:
-          type: integer
-        kota_id:
-          type: integer
-        kec_id:
-          type: integer
-        kel_id:
-          type: integer
         published_at:
           type: string
           format: date-time
-    TrendingArticle:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-        content:
-          type: string
-        image_url:
-          type: string
-        status:
-          type: string
-        author_id:
-          type: integer
-        category_id:
-          type: integer
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        prov_id:
-          type: integer
-        kota_id:
-          type: integer
-        kec_id:
-          type: integer
-        kel_id:
-          type: integer
-        published_at:
-          type: string
-          format: date-time
-        total_interactions:
-          type: integer
-    Category:
+
+    Tag:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-    RecommendedTag:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        usage_count:
-          type: integer
-    Province:
-      type: object
-      properties:
-        id:
-          type: integer
-        prov_name:
-          type: string
-        zona_id:
-          type: integer
-    City:
-      type: object
-      properties:
-        id:
-          type: integer
-        kota_name:
-          type: string
-    District:
-      type: object
-      properties:
-        id:
-          type: integer
-        kecamatan_name:
-          type: string
-    Subdistrict:
-      type: object
-      properties:
-        id:
-          type: integer
-        kelurahan_name:
-          type: string
+
     Comment:
       type: object
       properties:
         id:
           type: integer
+        article_id:
+          type: integer
+        author:
+          type: string
         content:
           type: string
-        user_id:
-          type: integer
-        user_email:
-          type: string
-        created_at:
+        posted_at:
           type: string
           format: date-time
-        updated_at:
-          type: string
-          format: date-time
-    NewComment:
-      type: object
-      properties:
-        content:
-          type: string
-        user_id:
-          type: integer
-        user_email:
-          type: string
-    RelatedTag:
+
+    Province:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-        article_count:
+
+    Kota:
+      type: object
+      properties:
+        id:
           type: integer
+        name:
+          type: string
+
+    Kecamatan:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+
+    Kelurahan:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+
+    ArticleResponsePaging:
+      type: object
+      properties:
+        total_pages:
+          type: integer
+        current_page:
+          type: integer
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Article'
 ```
