@@ -78,3 +78,14 @@
 h2 {
   @apply text-xl font-semibold md:text-2xl text-primary;
 }
+
+.regional-news-title {
+  @apply py-5 border-b md:py-9;
+}
+
+.regional-news-title h1 {
+  @apply text-xl font-semibold md:text-4xl text-primary;
+}
+.regional-news-title p {
+  @apply text-xs font-normal md:text-lg text-primary-foreground;
+}
