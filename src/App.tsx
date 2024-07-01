@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Layout from "./layout/Layout";
 import { lazy, Suspense } from "react";
+import Loader from "./components/custom/loader";
 
 const RegionalNews = lazy(() => import("./pages/RegionalNews"));
 const OtherNewsCategory = lazy(() => import("./pages/OtherNewsCategory"));
@@ -9,7 +10,7 @@ const OtherNewsCategory = lazy(() => import("./pages/OtherNewsCategory"));
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
