@@ -4,6 +4,7 @@ import Layout from "./layout/Layout";
 import { lazy, Suspense } from "react";
 
 const RegionalNews = lazy(() => import("./pages/RegionalNews"));
+const OtherNewsCategory = lazy(() => import("./pages/OtherNewsCategory"));
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="daerah" element={<RegionalNews />} />
+
+            {/* other news category route */}
+            <Route path="/berita/:id/:name" element={<OtherNewsCategory />} />
           </Route>
         </Routes>
       </Suspense>
