@@ -1,5 +1,4 @@
 import NewsCard from "@/components/custom/news-card";
-import NewsCategoryNav from "@/components/custom/news-category-nav";
 import ProvinceTags from "@/components/custom/province-tags";
 import RecommendedTags from "@/components/custom/recommended-tags";
 import { Button } from "@/components/ui/button";
@@ -57,15 +56,12 @@ function NewsTags() {
 
   return (
     <div className="space-y-[52px] md:space-y-[72px]">
-      <div>
-        <NewsCategoryNav />
-        <hgroup className="regional-news-title">
-          <h1>
-            {tag_name} : {tag_id}
-          </h1>
-          <p>Menampilkan seluruh berita dengan tag {tag_name}</p>
-        </hgroup>
-      </div>
+      <hgroup className="border-t regional-news-title">
+        <h1>
+          {tag_name} : {tag_id}
+        </h1>
+        <p>Menampilkan seluruh berita dengan tag {tag_name}</p>
+      </hgroup>
 
       <div className="flex flex-col gap-8 lg:flex-row">
         {news && news.length > 0 && (
