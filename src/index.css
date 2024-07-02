@@ -80,7 +80,7 @@ h2 {
 }
 
 .regional-news-title {
-  @apply py-5 border-b md:py-9;
+  @apply py-5 space-y-2 border-b md:py-9 md:space-y-3;
 }
 
 .regional-news-title h1 {

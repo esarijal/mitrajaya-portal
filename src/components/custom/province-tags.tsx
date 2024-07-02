@@ -1,15 +1,14 @@
-import { useNavigate } from "react-router-dom";
 import { Badge } from "../ui/badge";
 
 function ProvinceTags() {
   const provinceTags = [
     {
       id: 1,
-      prov_name: "Tag 1",
+      prov_name: "provinsi satu",
     },
     {
       id: 2,
-      prov_name: "Tag 2",
+      prov_name: "provinsi dua",
     },
     {
       id: 3,
@@ -49,23 +48,16 @@ function ProvinceTags() {
     },
   ];
 
-  const navigate = useNavigate();
-  const handleOnClick = (id: number) => {
-    navigate(`/tag/${id}`);
-  };
-
+  const url = window.location;
   return (
     <div className="min-w-[360px] space-y-7">
       <h2>Berita Berdasarkan Provinsi</h2>
       <div className="flex flex-wrap gap-3">
         {provinceTags &&
           provinceTags.map((tag) => (
-            <Badge
-              className="cursor-pointer"
-              onClick={() => handleOnClick(tag.id)}
-            >
-              {tag.prov_name}{" "}
-            </Badge>
+            <a href={`${url.pathname}/${tag.id}/${tag.prov_name}`}>
+              <Badge className="cursor-pointer">{tag.prov_name} </Badge>
+            </a>
           ))}
       </div>
     </div>
