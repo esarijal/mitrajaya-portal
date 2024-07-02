@@ -1,6 +1,11 @@
+import { createRegionalTagsUrl } from "@/lib/utils";
 import { Badge } from "../ui/badge";
 
-function DistrictTags() {
+function DistrictTags({
+  color = "primary",
+}: {
+  color?: "primary" | "secondary";
+}) {
   const districtTags = [
     {
       id: 1,
@@ -48,15 +53,25 @@ function DistrictTags() {
     },
   ];
 
-  const url = window.location;
   return (
     <div className="min-w-[360px] space-y-7">
-      <h2>Berita Berdasarkan Kecamatan</h2>
+      <h2
+        className={
+          color === "primary" ? "text-primary" : "text-secondary-foreground"
+        }
+      >
+        Berita Berdasarkan Kecamatan
+      </h2>
       <div className="flex flex-wrap gap-3">
         {districtTags &&
           districtTags.map((tag) => (
-            <a href={`${url.pathname}/${tag.id}/${tag.name}`}>
-              <Badge className="cursor-pointer">{tag.name} </Badge>
+            <a href={createRegionalTagsUrl(tag)} key={tag.id}>
+              <Badge
+                variant={color === "primary" ? "default" : "secondary"}
+                className="cursor-pointer"
+              >
+                {tag.name}{" "}
+              </Badge>
             </a>
           ))}
       </div>

@@ -21,9 +21,9 @@ const NewsCard = ({
 
   const handleOnClick = () => {
     if (url.pathname.includes("/daerah")) {
-      window.location.href = `${url.pathname}/${id}`;
+      window.location.href = `/detail-berita${url.pathname}/${id}/${title}`;
     } else {
-      window.location.href = `/detail-berita/${id}`;
+      window.location.href = `/detail-berita/${id}/${title}`;
     }
   };
 

@@ -1,6 +1,7 @@
 import NewsCard from "@/components/custom/news-card";
 import NewsCategoryNav from "@/components/custom/news-category-nav";
 import RecommendedTags from "@/components/custom/recommended-tags";
+import RegionalBreadcrumb from "@/components/custom/regional-breadcrumb";
 import { Button } from "@/components/ui/button";
 import { useParams } from "react-router-dom";
 
@@ -57,6 +58,11 @@ function SubdistrictNews() {
   return (
     <div className="space-y-[52px] md:space-y-[72px]">
       <div>
+        {/* Breadcrumb */}
+        <div className="pt-4 pb-2 md:pb-10 md:pt-9">
+          <RegionalBreadcrumb />
+        </div>
+
         <NewsCategoryNav />
         <hgroup className="regional-news-title">
           <h1>{subdistrict_name}</h1>

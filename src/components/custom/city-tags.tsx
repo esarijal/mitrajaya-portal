@@ -1,6 +1,7 @@
+import { createRegionalTagsUrl } from "@/lib/utils";
 import { Badge } from "../ui/badge";
 
-function CityTags() {
+function CityTags({ color = "primary" }: { color?: "primary" | "secondary" }) {
   const cityTags = [
     {
       id: 1,
@@ -48,15 +49,25 @@ function CityTags() {
     },
   ];
 
-  const url = window.location;
   return (
     <div className="min-w-[360px] space-y-7">
-      <h2>Berita Berdasarkan Kabupaten / Kota</h2>
+      <h2
+        className={
+          color === "primary" ? "text-primary" : "text-secondary-foreground"
+        }
+      >
+        Berita Berdasarkan Kabupaten / Kota
+      </h2>
       <div className="flex flex-wrap gap-3">
         {cityTags &&
           cityTags.map((tag) => (
-            <a href={`${url.pathname}/${tag.id}/${tag.name}`}>
-              <Badge className="cursor-pointer">{tag.name} </Badge>
+            <a href={createRegionalTagsUrl(tag)} key={tag.id}>
+              <Badge
+                variant={color === "primary" ? "default" : "secondary"}
+                className="cursor-pointer"
+              >
+                {tag.name}{" "}
+              </Badge>
             </a>
           ))}
       </div>
