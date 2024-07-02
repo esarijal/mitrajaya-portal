@@ -6,7 +6,7 @@ info:
   title: Mitra Portal API
   version: 1.0.0
 servers:
-  - url: http://localhost:6001
+  - url: https://portal-service.mysekuriti.com
 paths:
   /categories:
     get:
