@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { Badge } from "../ui/badge";
 
 function RecommendedTags() {
@@ -48,10 +47,6 @@ function RecommendedTags() {
       name: "Tag 10",
     },
   ];
-  const navigate = useNavigate();
-  const handleOnClick = (id: number) => {
-    navigate(`/tag/${id}`);
-  };
 
   return (
     <div className="min-w-[360px] space-y-7">
@@ -59,12 +54,9 @@ function RecommendedTags() {
       <div className="flex flex-wrap gap-3">
         {recommendedTags &&
           recommendedTags.map((tag) => (
-            <Badge
-              className="cursor-pointer"
-              onClick={() => handleOnClick(tag.id)}
-            >
-              {tag.name}{" "}
-            </Badge>
+            <a href={`/tag/${tag.id}/${tag.name}`}>
+              <Badge className="cursor-pointer">{tag.name}</Badge>
+            </a>
           ))}
       </div>
     </div>

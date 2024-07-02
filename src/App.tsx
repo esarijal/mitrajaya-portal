@@ -12,6 +12,7 @@ const CityNews = lazy(() => import("./pages/CityNews"));
 const DistrictNews = lazy(() => import("./pages/DistrictNews"));
 const SubdistrictNews = lazy(() => import("./pages/SubdistrictNews"));
 const RegionalNewsDetail = lazy(() => import("./pages/RegionalNewsDetail"));
+const NewsTags = lazy(() => import("./pages/NewsTags"));
 
 function App() {
   return (
@@ -67,6 +68,9 @@ function App() {
               path="detail-berita/daerah/:prov_id/:prov_name/:city_id/:city_name/:district_id/:district_name/:subdistrict_id/:subdistrict_name/:news_id/:news_title"
               element={<RegionalNewsDetail />}
             />
+
+            {/* news tags */}
+            <Route path="/tag/:tag_id/:tag_name" element={<NewsTags />} />
 
             {/* other news category route */}
             <Route path="/berita/:id/:name" element={<OtherNewsCategory />} />

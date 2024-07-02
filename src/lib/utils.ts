@@ -18,7 +18,9 @@ export const createRegionalTagsUrl = (tag: { id: number; name: string }) => {
     segments.pop();
 
     return `/${segments.join("/")}/${tag.id}/${tag.name}`;
-  } else {
+  } else if (url.pathname.includes("/daerah")) {
     return `${url}/${tag.id}/${tag.name}`;
+  } else {
+    return `/daerah/${tag.id}/${tag.name}`;
   }
 };
