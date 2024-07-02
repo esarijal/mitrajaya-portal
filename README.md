@@ -5,6 +5,8 @@ openapi: 3.0.0
 info:
   title: Mitra Portal API
   version: 1.0.0
+servers:
+  - url: http://localhost:6001
 paths:
   /categories:
     get:
@@ -310,12 +312,12 @@ paths:
                     items:
                       $ref: '#/components/schemas/Province'
 
-  /provinces/{provinceId}/kotas:
+  /provinces/{prov_id}/kotas:
     get:
       summary: Get cities in a province with published articles
       parameters:
         - in: path
-          name: provinceId
+          name: prov_id
           required: true
           schema:
             type: integer
@@ -647,14 +649,14 @@ components:
           type: integer
         article_id:
           type: integer
-        author:
-          type: string
+        user_id:
+          type: integer
         content:
           type: string
-        posted_at:
+        user_email:
           type: string
-          format: date-time
-
+          format: email
+        
     Province:
       type: object
       properties:
@@ -698,4 +700,5 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Article'
+
 ```
