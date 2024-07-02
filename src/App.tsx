@@ -72,7 +72,7 @@ function App() {
             <Route path="/berita/:id/:name" element={<OtherNewsCategory />} />
 
             {/* news detail */}
-            <Route path="/detail-berita/:id" element={<NewsDetail />} />
+            <Route path="/detail-berita/:id/:title" element={<NewsDetail />} />
           </Route>
         </Routes>
       </Suspense>
