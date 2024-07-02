@@ -15,6 +15,7 @@ export const createRegionalTagsUrl = (tag: { id: number; name: string }) => {
     segments.pop(); // remove the last segment
     segments.pop(); // remove the second-to-last segment
     segments.pop(); // remove the third-to-last segment
+    segments.pop();
 
     return `/${segments.join("/")}/${tag.id}/${tag.name}`;
   } else {
