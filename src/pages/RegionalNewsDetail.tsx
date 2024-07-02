@@ -152,7 +152,7 @@ function RegionalNewsDetail() {
         <img
           src={news.image_url}
           alt="image"
-          className="w-full rounded-[8px] h-[450px] object-cover"
+          className="w-full rounded-[8px] h-[200px] md:h-[450px] object-cover"
         />
       </article>
       <div className="flex flex-row-reverse lg:gap-16">
