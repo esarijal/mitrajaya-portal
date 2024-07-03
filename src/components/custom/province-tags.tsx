@@ -1,4 +1,3 @@
-import { createRegionalTagsUrl } from "@/lib/utils";
 import { Badge } from "../ui/badge";
 import { useGetProvinceWithArticles } from "@/hooks/useGetProvinceWithArticles";
 
@@ -22,13 +21,7 @@ function ProvinceTags({
         </h2>
         <div className="flex flex-wrap gap-3">
           {provinceTags.map((tag) => (
-            <a
-              href={createRegionalTagsUrl({
-                id: tag.id,
-                name: tag.prov_name,
-              })}
-              key={tag.id}
-            >
+            <a href={`/daerah/1/${tag.id}/${tag.prov_name}`} key={tag.id}>
               <Badge
                 variant={color === "primary" ? "default" : "secondary"}
                 className="cursor-pointer"
