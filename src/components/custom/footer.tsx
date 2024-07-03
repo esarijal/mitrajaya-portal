@@ -20,83 +20,88 @@ function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-row gap-20">
-          <div className="text-sm space-y-7">
-            <p className="text-primary-foreground">Situs Web Kami</p>
-            <ul className="space-y-6 text-primary">
-              <li>
-                <a
-                  className="hover:underline"
-                  target="_blank"
-                  rel="noreferrer"
-                  href="http://ptmitrajaya.com"
-                >
-                  Profil Perusahaan
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:underline"
-                  target="_blank"
-                  rel="noreferrer"
-                  href="http://mysekuriti.com"
-                >
-                  Aplikasi MySekuriti
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:underline"
-                  target="_blank"
-                  rel="noreferrer"
-                  href="http://korwil.mysekuriti.com"
-                >
-                  Aplikasi Korwil
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div className="text-sm space-y-7">
+          <p className="text-primary-foreground">Situs Web Kami</p>
+          <ul className="space-y-6 text-primary">
+            <li>
+              <a
+                className="hover:underline"
+                target="_blank"
+                rel="noreferrer"
+                href="http://ptmitrajaya.com"
+              >
+                Profil Perusahaan
+              </a>
+            </li>
+            <li>
+              <a
+                className="hover:underline"
+                target="_blank"
+                rel="noreferrer"
+                href="http://mysekuriti.com"
+              >
+                Aplikasi MySekuriti
+              </a>
+            </li>
+            <li>
+              <a
+                className="hover:underline"
+                target="_blank"
+                rel="noreferrer"
+                href="http://korwil.mysekuriti.com"
+              >
+                Aplikasi Korwil
+              </a>
+            </li>
+          </ul>
+        </div>
 
-          <div className="text-sm space-y-7">
-            <p className="text-primary-foreground">Aplikasi Kami</p>
-            <ul className="space-y-6 text-primary">
-              <li>
-                <a
-                  className="hover:underline"
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://play.google.com/store/apps/details?id=com.ddev.mysecurityklien"
-                >
-                  MySekuriti Client
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:underline"
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://play.google.com/store/apps/details?id=com.ddev.mysecuritykorwil"
-                >
-                  MySekuriti Korwil
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:underline"
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://play.google.com/store/apps/details?id=com.mysecurity_personil"
-                >
-                  MySekuriti Personil
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div className="text-sm space-y-7">
+          <p className="text-primary-foreground">Aplikasi Kami</p>
+          <ul className="space-y-6 text-primary">
+            <li>
+              <a
+                className="hover:underline"
+                target="_blank"
+                rel="noreferrer"
+                href="https://play.google.com/store/apps/details?id=com.ddev.mysecurityklien"
+              >
+                MySekuriti Client
+              </a>
+            </li>
+            <li>
+              <a
+                className="hover:underline"
+                target="_blank"
+                rel="noreferrer"
+                href="https://play.google.com/store/apps/details?id=com.ddev.mysecuritykorwil"
+              >
+                MySekuriti Korwil
+              </a>
+            </li>
+            <li>
+              <a
+                className="hover:underline"
+                target="_blank"
+                rel="noreferrer"
+                href="https://play.google.com/store/apps/details?id=com.mysecurity_personil"
+              >
+                MySekuriti Personil
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
       <Separator />
       <div className="space-y-8 md:flex md:items-center md:space-y-0 md:justify-between">
-        <p className="text-[#B6B9CE] text-xs">Copyright @2024</p>
+        <a
+          href="http://ptmitrajaya.com"
+          target="_blank"
+          rel="noreferrer"
+          className="text-[#B6B9CE] text-xs hover:underline"
+        >
+          Copyright @ 2024 PT Mitra Jaya Arya Sanika
+        </a>
         {/* <ul className="flex gap-4">
           <li className="p-3 rounded-full bg-active w-fit">
             <Facebook fill="#1E232E" />
