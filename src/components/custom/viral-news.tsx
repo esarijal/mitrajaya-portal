@@ -6,7 +6,6 @@ function ViralNews({ news }: { news: ArticleType[] | undefined }) {
 
   const handleOnClick = (id: number, name: string) => {
     navigate(`/detail-berita/${id}/${name}`);
-    window.location.reload();
   };
   return (
     news &&
@@ -18,7 +17,7 @@ function ViralNews({ news }: { news: ArticleType[] | undefined }) {
             <div
               key={item.id}
               className="flex gap-3 cursor-pointer group"
-              onClick={() => handleOnClick(news[0].id, news[0].title)}
+              onClick={() => handleOnClick(item.id, item.title)}
             >
               <div className="h-6 mt-1 aspect-square bg-[#DC0000] text-center rounded">
                 <p className="text-primary">{index + 1}</p>
