@@ -81,7 +81,7 @@ function RegionalBreadcrumb({
     <Breadcrumb>
       <BreadcrumbList className="breadcrumb-list flex-nowrap text-nowrap">
         <BreadcrumbItem>
-          <BreadcrumbLink className="text-sm md:text-lg" href="/daerah">
+          <BreadcrumbLink className="text-sm md:text-lg" href={`/daerah/${id}`}>
             Artikel
           </BreadcrumbLink>
           <BreadcrumbSeparator />
