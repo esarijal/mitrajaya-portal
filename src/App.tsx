@@ -23,49 +23,49 @@ function App() {
             <Route index element={<Home />} />
 
             {/* regional news */}
-            <Route path="daerah" element={<RegionalNews />} />
+            <Route path="daerah/:id" element={<RegionalNews />} />
             <Route
-              path="detail-berita/daerah/:news_id/:news_title"
+              path="detail-berita/daerah/:id/:news_id/:news_title"
               element={<RegionalNewsDetail />}
             />
 
             {/* province */}
             <Route
-              path="daerah/:prov_id/:prov_name"
+              path="daerah/:id/:prov_id/:prov_name"
               element={<ProvinceNews />}
             />
             <Route
-              path="detail-berita/daerah/:prov_id/:prov_name/:news_id/:news_title"
+              path="detail-berita/daerah/:id/:prov_id/:prov_name/:news_id/:news_title"
               element={<RegionalNewsDetail />}
             />
 
             {/* city */}
             <Route
-              path="daerah/:prov_id/:prov_name/:city_id/:city_name"
+              path="daerah/:id/:prov_id/:prov_name/:city_id/:city_name"
               element={<CityNews />}
             />
             <Route
-              path="detail-berita/daerah/:prov_id/:prov_name/:city_id/:city_name/:news_id/:news_title"
+              path="detail-berita/daerah/:id/:prov_id/:prov_name/:city_id/:city_name/:news_id/:news_title"
               element={<RegionalNewsDetail />}
             />
 
             {/* district */}
             <Route
-              path="daerah/:prov_id/:prov_name/:city_id/:city_name/:district_id/:district_name"
+              path="daerah/:id/:prov_id/:prov_name/:city_id/:city_name/:district_id/:district_name"
               element={<DistrictNews />}
             />
             <Route
-              path="detail-berita/daerah/:prov_id/:prov_name/:city_id/:city_name/:district_id/:district_name/:news_id/:news_title"
+              path="detail-berita/daerah/:id/:prov_id/:prov_name/:city_id/:city_name/:district_id/:district_name/:news_id/:news_title"
               element={<RegionalNewsDetail />}
             />
 
             {/* subdistrict */}
             <Route
-              path="daerah/:prov_id/:prov_name/:city_id/:city_name/:district_id/:district_name/:subdistrict_id/:subdistrict_name"
+              path="daerah/:id/:prov_id/:prov_name/:city_id/:city_name/:district_id/:district_name/:subdistrict_id/:subdistrict_name"
               element={<SubdistrictNews />}
             />
             <Route
-              path="detail-berita/daerah/:prov_id/:prov_name/:city_id/:city_name/:district_id/:district_name/:subdistrict_id/:subdistrict_name/:news_id/:news_title"
+              path="detail-berita/daerah/:id/:prov_id/:prov_name/:city_id/:city_name/:district_id/:district_name/:subdistrict_id/:subdistrict_name/:news_id/:news_title"
               element={<RegionalNewsDetail />}
             />
 

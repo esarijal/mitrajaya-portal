@@ -1,57 +1,18 @@
 import { createRegionalTagsUrl } from "@/lib/utils";
 import { Badge } from "../ui/badge";
+import { useParams } from "react-router-dom";
+import { useGetSubdistrictWithArticles } from "@/hooks/useGetSubdistrictWithArticles";
 
 function SubDistrictTags({
   color = "primary",
 }: {
   color?: "primary" | "secondary";
 }) {
-  const subdistrictTags = [
-    {
-      id: 1,
-      name: "kelurahan satu",
-    },
-    {
-      id: 2,
-      name: "kelurahan dua",
-    },
-    {
-      id: 3,
-      name: "Tag 3",
-    },
-    {
-      id: 4,
-      name: "Tag 4",
-    },
-    {
-      id: 5,
-      name: "Tag 5",
-    },
-    {
-      id: 6,
-      name: "Tag 6",
-    },
-    {
-      id: 6,
-      name: "Tag 6",
-    },
-    {
-      id: 7,
-      name: "Tag 723123",
-    },
-    {
-      id: 8,
-      name: "Tag 8",
-    },
-    {
-      id: 9,
-      name: "Tag 9",
-    },
-    {
-      id: 10,
-      name: "Tag 10",
-    },
-  ];
+  const { district_id } = useParams();
+
+  const { data: subdistrictTags } = useGetSubdistrictWithArticles({
+    districtID: district_id as string,
+  });
 
   return (
     <div className="min-w-[360px] space-y-7">
@@ -65,12 +26,18 @@ function SubDistrictTags({
       <div className="flex flex-wrap gap-3">
         {subdistrictTags &&
           subdistrictTags.map((tag) => (
-            <a href={createRegionalTagsUrl(tag)} key={tag.id}>
+            <a
+              href={createRegionalTagsUrl({
+                id: tag.id,
+                name: tag.kelurahan_name,
+              })}
+              key={tag.id}
+            >
               <Badge
                 variant={color === "primary" ? "default" : "secondary"}
                 className="cursor-pointer"
               >
-                {tag.name}{" "}
+                {tag.kelurahan_name}
               </Badge>
             </a>
           ))}

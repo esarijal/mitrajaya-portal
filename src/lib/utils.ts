@@ -24,3 +24,33 @@ export const createRegionalTagsUrl = (tag: { id: number; name: string }) => {
     return `/daerah/${tag.id}/${tag.name}`;
   }
 };
+
+export function convertHtmlToPlainText(html = "") {
+  const tempElement = document.createElement("div");
+  tempElement.innerHTML = html;
+
+  // Replace <br> tags with two spaces
+  tempElement.innerHTML = tempElement.innerHTML.replace(/<br\s*\/?>/gi, "  ");
+
+  // Iterate over the child nodes to handle tags and text nodes separately
+  let plainText = "";
+  function iterateNodes(node: Node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      plainText += node.textContent;
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      if (node.nodeName === "P") {
+        if (plainText) {
+          plainText += " "; // Add a space before new <p> content if plainText already has content
+        }
+      }
+      node.childNodes.forEach(iterateNodes);
+    }
+  }
+
+  tempElement.childNodes.forEach(iterateNodes);
+
+  // Replace multiple spaces with a single space
+  plainText = plainText.replace(/\s+/g, " ");
+
+  return plainText;
+}

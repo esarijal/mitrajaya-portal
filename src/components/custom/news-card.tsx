@@ -1,3 +1,5 @@
+import { convertHtmlToPlainText } from "@/lib/utils";
+
 const NewsCard = ({
   size = "large",
   title,
@@ -33,7 +35,7 @@ const NewsCard = ({
     return (
       <div
         onClick={handleOnClick}
-        className="flex flex-col-reverse w-full gap-5 cursor-pointer md:flex-row group"
+        className="flex flex-col-reverse justify-between w-full gap-5 cursor-pointer md:flex-row group"
       >
         <div className="flex flex-col justify-between gap-2">
           <div className="flex flex-col w-full space-y-2 md:space-y-3">
@@ -41,7 +43,7 @@ const NewsCard = ({
               {title}
             </h1>
             <h2 className="hidden text-xs font-normal md:text-base text-primary-foreground md:line-clamp-2">
-              {subHeading}
+              {convertHtmlToPlainText(subHeading)}
             </h2>
           </div>
           <time
@@ -114,7 +116,7 @@ const NewsCard = ({
             {title}
           </h1>
           <h2 className="hidden text-base font-normal md:line-clamp-2 text-primary-foreground ">
-            {subHeading}
+            {convertHtmlToPlainText(subHeading)}
           </h2>
           <time
             className="font-copy text-[11px]  font-normal md:text-sm text-primary-foreground"

@@ -1,53 +1,13 @@
 import { createRegionalTagsUrl } from "@/lib/utils";
 import { Badge } from "../ui/badge";
+import { useGetCityWithArticles } from "@/hooks/useGetCityWithArticles";
+import { useParams } from "react-router-dom";
 
 function CityTags({ color = "primary" }: { color?: "primary" | "secondary" }) {
-  const cityTags = [
-    {
-      id: 1,
-      name: "kota satu",
-    },
-    {
-      id: 2,
-      name: "kota dua",
-    },
-    {
-      id: 3,
-      name: "Tag 3",
-    },
-    {
-      id: 4,
-      name: "Tag 4",
-    },
-    {
-      id: 5,
-      name: "Tag 5",
-    },
-    {
-      id: 6,
-      name: "Tag 6",
-    },
-    {
-      id: 6,
-      name: "Tag 6",
-    },
-    {
-      id: 7,
-      name: "Tag 723123",
-    },
-    {
-      id: 8,
-      name: "Tag 8",
-    },
-    {
-      id: 9,
-      name: "Tag 9",
-    },
-    {
-      id: 10,
-      name: "Tag 10",
-    },
-  ];
+  const { prov_id } = useParams();
+  const { data: cityTags } = useGetCityWithArticles({
+    provID: prov_id as string,
+  });
 
   return (
     <div className="min-w-[360px] space-y-7">
@@ -61,12 +21,18 @@ function CityTags({ color = "primary" }: { color?: "primary" | "secondary" }) {
       <div className="flex flex-wrap gap-3">
         {cityTags &&
           cityTags.map((tag) => (
-            <a href={createRegionalTagsUrl(tag)} key={tag.id}>
+            <a
+              href={createRegionalTagsUrl({
+                id: tag.id,
+                name: tag.kota_name,
+              })}
+              key={tag.id}
+            >
               <Badge
                 variant={color === "primary" ? "default" : "secondary"}
                 className="cursor-pointer"
               >
-                {tag.name}{" "}
+                {tag.kota_name}{" "}
               </Badge>
             </a>
           ))}

@@ -15,3 +15,63 @@ export type TrendingArticleType = {
   published_at: string;
   total_interactions: number;
 };
+
+export type ArticleCategoryType = {
+  id: number;
+  name: string;
+};
+
+export type ArticleType = {
+  id: number;
+  title: string;
+  content: string;
+  author: number;
+  published_at: string;
+  updated_at: string;
+  image_url: string;
+  content: string;
+};
+
+export type ArticleTagType = {
+  id: number;
+  name: string;
+};
+
+export type ArticleCommentType = {
+  id: number;
+  article_id: number;
+  user_id: number;
+  content: string;
+  user_email: string;
+};
+
+export type RegionType = {
+  id: number;
+  name: string;
+};
+
+export type ProvinceType = {
+  id: number;
+  prov_name: string;
+};
+
+export type CityType = {
+  id: number;
+  kota_name: string;
+};
+
+export type DistrictType = {
+  id: number;
+  kecamatan_name: string;
+};
+
+export type SubdistrictType = {
+  id: number;
+  kelurahan_name: string;
+};
+
+export type ArticleResponsePaging = {
+  total_pages: number;
+  current_page: number;
+  data: ArticleType[];
+};

@@ -1,7 +1,7 @@
-import { TrendingArticleType } from "@/types/type";
+import { ArticleType } from "@/types/type";
 import { useNavigate } from "react-router-dom";
 
-function ViralNews({ news }: { news: TrendingArticleType[] | undefined }) {
+function ViralNews({ news }: { news: ArticleType[] | undefined }) {
   const navigate = useNavigate();
 
   const handleOnClick = (id: number, name: string) => {
@@ -24,7 +24,7 @@ function ViralNews({ news }: { news: TrendingArticleType[] | undefined }) {
                 <p className="text-primary">{index + 1}</p>
               </div>
               <div className="flex flex-col gap-2">
-                <h1 className="text-base text-primary group-hover:underline">
+                <h1 className="text-base text-primary group-hover:underline group-hover:text-active">
                   {item.title}
                 </h1>
                 <time
