@@ -20,34 +20,78 @@ function Footer() {
           </p>
         </div>
 
-        <div className="text-sm space-y-7">
-          <p className="text-primary-foreground">Footer Title</p>
-          <ul className="space-y-6 text-primary">
-            <li>Footer Link</li>
-            <li>Footer Link</li>
-            <li>Footer Link</li>
-            <li>Footer Link</li>
-          </ul>
-        </div>
+        <div className="flex flex-row gap-20">
+          <div className="text-sm space-y-7">
+            <p className="text-primary-foreground">Situs Web Kami</p>
+            <ul className="space-y-6 text-primary">
+              <li>
+                <a
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="http://ptmitrajaya.com"
+                >
+                  Profil Perusahaan
+                </a>
+              </li>
+              <li>
+                <a
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="http://mysekuriti.com"
+                >
+                  Aplikasi MySekuriti
+                </a>
+              </li>
+              <li>
+                <a
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="http://korwil.mysekuriti.com"
+                >
+                  Aplikasi Korwil
+                </a>
+              </li>
+            </ul>
+          </div>
 
-        <div className="text-sm space-y-7">
-          <p className="text-primary-foreground">Footer Title</p>
-          <ul className="space-y-6 text-primary">
-            <li>Footer Link</li>
-            <li>Footer Link</li>
-            <li>Footer Link</li>
-            <li>Footer Link</li>
-          </ul>
-        </div>
-
-        <div className="text-sm space-y-7">
-          <p className="text-primary-foreground">Footer Title</p>
-          <ul className="space-y-6 text-primary">
-            <li>Footer Link</li>
-            <li>Footer Link</li>
-            <li>Footer Link</li>
-            <li>Footer Link</li>
-          </ul>
+          <div className="text-sm space-y-7">
+            <p className="text-primary-foreground">Aplikasi Kami</p>
+            <ul className="space-y-6 text-primary">
+              <li>
+                <a
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://play.google.com/store/apps/details?id=com.ddev.mysecurityklien"
+                >
+                  MySekuriti Client
+                </a>
+              </li>
+              <li>
+                <a
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://play.google.com/store/apps/details?id=com.ddev.mysecuritykorwil"
+                >
+                  MySekuriti Korwil
+                </a>
+              </li>
+              <li>
+                <a
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://play.google.com/store/apps/details?id=com.mysecurity_personil"
+                >
+                  MySekuriti Personil
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <Separator />
