@@ -2,6 +2,7 @@ import Footer from "@/components/custom/footer";
 import Navbar from "@/components/custom/navbar";
 import { Outlet, useLocation } from "react-router-dom";
 import { useMemo } from "react";
+import { Toaster } from "@/components/ui/toaster";
 
 function Layout() {
   const location = useLocation();
@@ -18,6 +19,7 @@ function Layout() {
           <Outlet />
         </div>
       </main>
+      <Toaster />
       <Footer />
     </div>
   );
