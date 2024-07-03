@@ -30,6 +30,7 @@ export type ArticleType = {
   updated_at: string;
   image_url: string;
   content: string;
+  tags: string[];
 };
 
 export type ArticleTagType = {
@@ -43,11 +44,15 @@ export type ArticleCommentType = {
   user_id: number;
   content: string;
   user_email: string;
+  created_at: string;
+  updated_at: string;
 };
 
-export type RegionType = {
-  id: number;
-  name: string;
+export type ArticleCommentPayload = {
+  article_id: number;
+  user_id?: number;
+  content: string;
+  user_email?: string;
 };
 
 export type ProvinceType = {
