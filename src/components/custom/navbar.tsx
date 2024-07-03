@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <header className="bg-[#1E232E] sticky top-0">
+    <header className="bg-[#1E232E] sticky top-0 z-50">
       <div className="container backdrop-blur-sm">
         <div className="py-4 md:py-6">
           <Link to="/" className="flex items-center gap-2">
