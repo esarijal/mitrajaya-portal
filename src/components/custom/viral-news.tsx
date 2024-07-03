@@ -1,12 +1,6 @@
 import { ArticleType } from "@/types/type";
-import { useNavigate } from "react-router-dom";
 
 function ViralNews({ news }: { news: ArticleType[] | undefined }) {
-  const navigate = useNavigate();
-
-  const handleOnClick = (id: number, name: string) => {
-    navigate(`/detail-berita/${id}/${name}`);
-  };
   return (
     news &&
     news.length > 0 && (
@@ -14,10 +8,10 @@ function ViralNews({ news }: { news: ArticleType[] | undefined }) {
         <h2>Berita Viral</h2>
         <div className="flex flex-col gap-4">
           {news.map((item, index) => (
-            <div
+            <a
               key={item.id}
               className="flex gap-3 cursor-pointer group"
-              onClick={() => handleOnClick(item.id, item.title)}
+              href={`/detail-berita/${item.id}/${item.title}`}
             >
               <div className="h-6 mt-1 aspect-square bg-[#DC0000] text-center rounded">
                 <p className="text-primary">{index + 1}</p>
@@ -45,7 +39,7 @@ function ViralNews({ news }: { news: ArticleType[] | undefined }) {
                   })}
                 </time>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
