@@ -1,5 +1,4 @@
 import { Separator } from "../ui/separator";
-import { Facebook, Instagram, Twitter } from "lucide-react";
 
 function Footer() {
   return (
