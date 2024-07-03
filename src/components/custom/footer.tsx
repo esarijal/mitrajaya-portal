@@ -16,8 +16,8 @@ function Footer() {
             </h1>
           </div>
           <p className="text-sm text-primary-foreground">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, curabitur
-            maximus quam.
+            Portal Berita Terpercaya: Menyajikan Berita Daerah Terdepan dan
+            Terpercaya di Sekitar Anda
           </p>
         </div>
 
@@ -53,8 +53,8 @@ function Footer() {
       </div>
       <Separator />
       <div className="space-y-8 md:flex md:items-center md:space-y-0 md:justify-between">
-        <p className="text-[#B6B9CE] text-xs">Copyright ©2022</p>
-        <ul className="flex gap-4">
+        <p className="text-[#B6B9CE] text-xs">Copyright @2024</p>
+        {/* <ul className="flex gap-4">
           <li className="p-3 rounded-full bg-active w-fit">
             <Facebook fill="#1E232E" />
           </li>
@@ -64,7 +64,7 @@ function Footer() {
           <li className="p-3 rounded-full bg-active w-fit">
             <Instagram fill="#1E232E" stroke="#EDC12D" />
           </li>
-        </ul>
+        </ul> */}
       </div>
     </footer>
   );
