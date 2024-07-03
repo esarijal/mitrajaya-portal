@@ -31,30 +31,6 @@ const NewsCard = ({
 
   const date = updateDate > publishDate ? updateDate : publishDate;
 
-  const isVideo =
-    image.endsWith(".mp4") || image.endsWith(".webm") || image.endsWith(".ogg");
-
-  const renderMedia = () => {
-    if (isVideo) {
-      return (
-        <video
-          src={image}
-          className="md:h-[320px] h-[180px] rounded-xl object-cover md:rounded-[20px] aspect-square"
-          controls={false}
-          muted
-        />
-      );
-    } else {
-      return (
-        <img
-          src={image}
-          className="md:h-[320px] h-[180px] rounded-xl object-cover md:rounded-[20px] aspect-square"
-          alt="image"
-        />
-      );
-    }
-  };
-
   const LargeNewsCard = () => {
     return (
       <div
@@ -81,7 +57,27 @@ const NewsCard = ({
             })}
           </time>
         </div>
-        {renderMedia()}
+        {/* Image or Video Element */}
+        {image && (
+          <>
+            {image.includes(".mp4") ? (
+              <video
+                controls={false}
+                muted
+                className="md:h-[320px] h-[180px] rounded-xl object-cover md:rounded-[20px] aspect-square"
+              >
+                <source src={image} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img
+                src={image}
+                alt="image"
+                className="md:h-[320px] h-[180px] rounded-xl object-cover md:rounded-[20px] aspect-square"
+              />
+            )}
+          </>
+        )}
       </div>
     );
   };
@@ -92,7 +88,27 @@ const NewsCard = ({
         onClick={handleOnClick}
         className="w-full space-y-3 cursor-pointer article-card md:space-y-4 group"
       >
-        {renderMedia()}
+        {/* Image or Video Element */}
+        {image && (
+          <>
+            {image.includes(".mp4") ? (
+              <video
+                controls={false}
+                muted
+                className="h-[180px] w-full rounded-xl object-cover md:h-[205px] md:rounded-[20px]"
+              >
+                <source src={image} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img
+                src={image}
+                alt="image"
+                className="h-[180px] w-full rounded-xl object-cover md:h-[205px] md:rounded-[20px]"
+              />
+            )}
+          </>
+        )}
         <div className="flex flex-col space-y-1 md:space-y-2">
           <h1
             className={`font-medium line-clamp-2 ${
@@ -122,7 +138,27 @@ const NewsCard = ({
         onClick={handleOnClick}
         className="flex flex-col w-full gap-3 cursor-pointer md:items-center md:flex-row article-card h-fit md:gap-7 group"
       >
-        {renderMedia()}
+        {/* Image or Video Element */}
+        {image && (
+          <>
+            {image.includes(".mp4") ? (
+              <video
+                controls={false}
+                muted
+                className="h-[200px] w-full rounded-2xl object-cover md:h-[170px] md:w-[250px]"
+              >
+                <source src={image} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img
+                src={image}
+                alt="image"
+                className="h-[200px] w-full rounded-2xl object-cover md:h-[170px] md:w-[250px]"
+              />
+            )}
+          </>
+        )}
         <div className="flex flex-col space-y-2 md:space-y-4">
           <h1 className="text-base font-medium text-primary md:text-xl group-hover:underline group-hover:text-active">
             {title}

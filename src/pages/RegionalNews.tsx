@@ -78,7 +78,7 @@ function RegionalNews() {
             latestArticles.data &&
             latestArticles.data.length > 0 && (
               <div className="flex flex-col items-center gap-4 md:gap-8">
-                <div className="space-y-4 md:space-y-8">
+                <div className="w-full space-y-4 md:space-y-8">
                   {latestArticles.data.map((article) => (
                     <div key={article.id}>
                       <NewsCard
