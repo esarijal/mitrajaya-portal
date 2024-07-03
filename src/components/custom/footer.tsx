@@ -8,10 +8,10 @@ function Footer() {
         <div className="space-y-4 md:max-w-[300px]">
           <div className="flex items-center gap-2">
             <img src="/logo-1.png" alt="" className="h-5 md:h-12" />
-            <h1 className="flex flex-col text-lg font-bold leading-tight uppercase text-start text-[#3a70bb]">
+            <h1 className="flex flex-col text-lg font-bold leading-tight uppercase text-start text-[#eab723]">
               Mitra Jaya{" "}
-              <span className="text-xs font-semibold text-[#52ace4]">
-                Arya Sanika
+              <span className="text-xs font-semibold text-[#e4cc4c]">
+                PORTAL
               </span>
             </h1>
           </div>
