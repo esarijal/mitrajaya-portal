@@ -79,25 +79,29 @@ function RegionalNewsDetail() {
           </div>
         </div>
         {/* Image or Video Cover */}
-        {news.image_url && (
-          <>
-            {news.image_url.includes(".mp4") ? (
-              <video
-                controls
-                className="w-full rounded-[8px] h-[200px] md:h-[450px] object-contain bg-secondary-foreground"
-              >
-                <source src={news.image_url} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <img
-                src={news.image_url}
-                alt="image"
-                className="w-full rounded-[8px] h-[200px] md:h-[450px] object-contain bg-secondary-foreground"
-              />
-            )}
-          </>
-        )}
+
+        {/* max w w-full - 360px */}
+        <div className="lg:max-w-[calc(100%-360px)]">
+          {news.image_url && (
+            <>
+              {news.image_url.includes(".mp4") ? (
+                <video
+                  controls
+                  className="w-full rounded-[8px] h-[200px] md:h-[450px] object-contain bg-secondary-foreground"
+                >
+                  <source src={news.image_url} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <img
+                  src={news.image_url}
+                  alt="image"
+                  className="w-full rounded-[8px] h-[200px] md:h-[450px] object-contain bg-secondary-foreground"
+                />
+              )}
+            </>
+          )}
+        </div>
       </article>
       <div className="flex flex-row-reverse lg:gap-16">
         {/* region news tags */}
