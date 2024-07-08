@@ -12,7 +12,11 @@ function SubdistrictNews() {
   const { subdistrict_name, subdistrict_id } = useParams();
   const [pageSize, setPageSize] = useState(5);
 
-  const { data: subdistrictNews, isLoading } = useGetSubdistrictLatestArticles({
+  const {
+    data: subdistrictNews,
+    isLoading,
+    isSuccess,
+  } = useGetSubdistrictLatestArticles({
     subdistrictID: subdistrict_id as string,
     page: 1,
     pageSize,
@@ -63,6 +67,17 @@ function SubdistrictNews() {
               />
             </div>
           )}
+
+        {isSuccess && subdistrictNews && !subdistrictNews.data && (
+          <div className="flex flex-col w-full gap-4 md:gap-8">
+            <h3 className="text-xl font-medium text-white">Belum Ada Berita</h3>
+            <p className="text-primary-foreground">
+              Tidak ada berita di lokasi ini. Coba ganti lokasi untuk melihat
+              berita dari daerah lain.
+            </p>
+          </div>
+        )}
+
         <div className="flex flex-col flex-1 gap-8">
           <RecommendedTags />
         </div>
