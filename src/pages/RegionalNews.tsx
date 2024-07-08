@@ -65,8 +65,8 @@ function RegionalNews() {
               </div>
             )}
           <div className="flex flex-col flex-1 gap-8">
-            <RecommendedTags />
             <ProvinceTags />
+            <RecommendedTags />
           </div>
         </div>
       </div>
