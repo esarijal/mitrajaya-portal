@@ -78,8 +78,8 @@ function DistrictNews() {
         )}
 
         <div className="flex flex-col flex-1 gap-8">
-          <RecommendedTags />
           <SubDistrictTags />
+          <RecommendedTags />
         </div>
       </div>
     </div>

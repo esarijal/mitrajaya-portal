@@ -17,7 +17,7 @@ function SubDistrictTags({
   });
 
   return (
-    <div className="min-w-[360px] space-y-7">
+    <div className="min-w-[360px] lg:w-[360px] space-y-7">
       <h2
         className={
           color === "primary" ? "text-primary" : "text-secondary-foreground"
