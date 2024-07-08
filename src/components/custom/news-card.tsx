@@ -50,11 +50,16 @@ const NewsCard = ({
             className="text-xs font-normal md:text-base text-primary-foreground"
             dateTime={date}
           >
-            {new Date(date).toLocaleDateString("id-ID", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {new Date(date)
+              .toLocaleDateString("id-ID", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+              })
+              .replace("pukul", ",")}{" "}
+            WIB
           </time>
         </div>
         {/* Image or Video Element */}
@@ -121,11 +126,16 @@ const NewsCard = ({
             className="text-xs font-normal text-primary-foreground md:text-sm"
             dateTime={date}
           >
-            {new Date(date).toLocaleDateString("id-ID", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {new Date(date)
+              .toLocaleDateString("id-ID", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+              })
+              .replace("pukul", ",")}{" "}
+            WIB
           </time>
         </div>
       </div>
@@ -170,11 +180,16 @@ const NewsCard = ({
             className="font-copy text-[11px]  font-normal md:text-sm text-primary-foreground"
             dateTime={date}
           >
-            {new Date(date).toLocaleDateString("id-ID", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {new Date(date)
+              .toLocaleDateString("id-ID", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+              })
+              .replace("pukul", ",")}{" "}
+            WIB
           </time>
         </div>
       </div>
