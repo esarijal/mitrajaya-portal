@@ -78,8 +78,8 @@ function ProvinceNews() {
           </div>
         )}
         <div className="flex flex-col flex-1 gap-8">
-          <RecommendedTags />
           <CityTags />
+          <RecommendedTags />
         </div>
       </div>
     </div>
