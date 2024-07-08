@@ -159,7 +159,7 @@ const NewsCard = ({
             )}
           </>
         )}
-        <div className="flex flex-col space-y-2 md:space-y-4">
+        <div className="flex flex-col flex-1 space-y-2 md:space-y-4">
           <h1 className="text-base font-medium text-primary md:text-xl group-hover:underline group-hover:text-active">
             {title}
           </h1>

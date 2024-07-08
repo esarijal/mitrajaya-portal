@@ -91,7 +91,7 @@ function NewsDetail() {
               <img
                 src={news.image_url}
                 alt="image"
-                className="w-full rounded-[8px] h-[200px] md:h-[450px] object-cover"
+                className="w-full rounded-[8px] h-[200px] md:h-[450px] object-contain bg-secondary-foreground"
               />
             )}
           </>
