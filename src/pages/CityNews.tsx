@@ -77,8 +77,8 @@ function CityNews() {
           </div>
         )}
         <div className="flex flex-col flex-1 gap-8">
-          <RecommendedTags />
           <DistrictTags />
+          <RecommendedTags />
         </div>
       </div>
     </div>
