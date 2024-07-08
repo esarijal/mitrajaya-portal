@@ -1,12 +1,12 @@
+import { useGetRegionList } from "@/hooks/useGetRegionList";
 import { Badge } from "../ui/badge";
-import { useGetProvinceWithArticles } from "@/hooks/useGetProvinceWithArticles";
 
 function ProvinceTags({
   color = "primary",
 }: {
   color?: "primary" | "secondary";
 }) {
-  const { data: provinceTags } = useGetProvinceWithArticles();
+  const { data: provinceTags } = useGetRegionList({});
 
   return (
     provinceTags &&

@@ -13,7 +13,11 @@ function ProvinceNews() {
   const { prov_name, prov_id } = useParams();
 
   const [pageSize, setPageSize] = useState(5);
-  const { data: provinceNews, isLoading } = useGetProvinceLatestArticles({
+  const {
+    data: provinceNews,
+    isLoading,
+    isSuccess,
+  } = useGetProvinceLatestArticles({
     provID: prov_id as string,
     page: 1,
     pageSize,
@@ -62,6 +66,15 @@ function ProvinceNews() {
               setPageSize={setPageSize}
               totalPage={provinceNews.total_pages}
             />
+          </div>
+        )}
+        {isSuccess && provinceNews && !provinceNews.data && (
+          <div className="flex flex-col w-full gap-4 md:gap-8">
+            <h3 className="text-xl font-medium text-white">Belum Ada Berita</h3>
+            <p className="text-primary-foreground">
+              Tidak ada berita di lokasi ini. Coba ganti lokasi untuk melihat
+              berita dari daerah lain.
+            </p>
           </div>
         )}
         <div className="flex flex-col flex-1 gap-8">

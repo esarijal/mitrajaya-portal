@@ -1,12 +1,14 @@
 import { createRegionalTagsUrl } from "@/lib/utils";
 import { Badge } from "../ui/badge";
-import { useGetCityWithArticles } from "@/hooks/useGetCityWithArticles";
+
 import { useParams } from "react-router-dom";
+import { useGetRegionList } from "@/hooks/useGetRegionList";
 
 function CityTags({ color = "primary" }: { color?: "primary" | "secondary" }) {
   const { prov_id } = useParams();
-  const { data: cityTags } = useGetCityWithArticles({
-    provID: prov_id as string,
+
+  const { data: cityTags } = useGetRegionList({
+    prov_id: prov_id as string,
   });
 
   return (

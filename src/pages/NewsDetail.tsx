@@ -60,11 +60,16 @@ function NewsDetail() {
                 news?.updated_at > news?.published_at
                   ? news?.updated_at
                   : news?.published_at
-              ).toLocaleDateString("id-ID", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+              )
+                .toLocaleDateString("id-ID", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                })
+                .replace("pukul", ",")}{" "}
+              WIB
             </time>
             <button className="flex gap-2 text-xs font-normal text-primary-foreground md:text-base">
               Share{" "}
@@ -91,7 +96,7 @@ function NewsDetail() {
               <img
                 src={news.image_url}
                 alt="image"
-                className="w-full rounded-[8px] h-[200px] md:h-[450px] object-cover"
+                className="w-full rounded-[8px] h-[200px] md:h-[450px] object-contain bg-secondary-foreground"
               />
             )}
           </>
