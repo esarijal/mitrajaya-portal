@@ -54,3 +54,7 @@ export function convertHtmlToPlainText(html = "") {
 
   return plainText;
 }
+
+export const unescapeHTMLContent = (escapedHtml: string) => {
+  return escapedHtml.replace(/\\"/g, `"`);
+};
