@@ -23,9 +23,13 @@ const NewsCard = ({
 
   const handleOnClick = () => {
     if (url.pathname.includes("/daerah")) {
-      window.location.href = `/detail-berita${url.pathname}/${id}/${title}`;
+      window.location.href = `/detail-berita${url.pathname}/${id}/${
+        title || "bedasudutpandang"
+      }`;
     } else {
-      window.location.href = `/detail-berita/${id}/${title}`;
+      window.location.href = `/detail-berita/${id}/${
+        title || "bedasudutpandang"
+      }`;
     }
   };
 
