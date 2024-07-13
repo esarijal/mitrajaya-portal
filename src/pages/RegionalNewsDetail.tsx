@@ -4,9 +4,9 @@ import DistrictTags from "@/components/custom/district-tags";
 import Loader from "@/components/custom/loader";
 import ProvinceTags from "@/components/custom/province-tags";
 import RegionalBreadcrumb from "@/components/custom/regional-breadcrumb";
+import ShareButton from "@/components/custom/share-button";
 import SubDistrictTags from "@/components/custom/subdistrict-tags";
 import { useGetArticleDetail } from "@/hooks/useGetDetailArticles";
-import { Share2 } from "lucide-react";
 import { useParams } from "react-router-dom";
 
 function RegionalNewsDetail() {
@@ -74,13 +74,7 @@ function RegionalNewsDetail() {
                 .replace("pukul", ",")}{" "}
               WIB
             </time>
-            <button className="flex gap-2 text-xs font-normal text-primary-foreground md:text-base">
-              Share{" "}
-              <Share2
-                fill="#667697"
-                className="h-[14px] aspect-square md:h-6"
-              />
-            </button>
+            <ShareButton />
           </div>
         </div>
         {/* Image or Video Cover */}
