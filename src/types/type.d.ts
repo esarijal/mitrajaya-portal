@@ -26,6 +26,7 @@ export type ArticleType = {
   title: string;
   content: string;
   author: number;
+  author_name: number;
   published_at: string;
   updated_at: string;
   image_url: string;

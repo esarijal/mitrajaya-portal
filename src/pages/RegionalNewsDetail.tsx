@@ -51,29 +51,42 @@ function RegionalNewsDetail() {
         <div className="space-y-6 md:space-y-8">
           <h1 className="text-xl font-semibold md:text-4xl">{news.title}</h1>
           <div className="flex items-center justify-between px-2 py-4 border-y border-[#DDE2EE] md:py-5 md:px-5">
-            <time
-              className="text-xs font-normal md:text-base text-primary-foreground"
-              dateTime={
-                news.updated_at > news.published_at
-                  ? news.updated_at
-                  : news.published_at
-              }
-            >
-              {new Date(
-                news.updated_at > news.published_at
-                  ? news.updated_at
-                  : news.published_at
-              )
-                .toLocaleDateString("id-ID", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                  hour: "numeric",
-                  minute: "numeric",
-                })
-                .replace("pukul", ",")}{" "}
-              WIB
-            </time>
+            <div className="flex flex-col gap-2 md:flex-row">
+              {news.author_name && (
+                <>
+                  <p className="text-xs font-normal max-w-52 md:text-base text-primary-foreground line-clamp-1">
+                    Oleh : {news?.author_name}
+                  </p>
+                  <span className="hidden text-primary-foreground md:block">
+                    |
+                  </span>
+                </>
+              )}
+              <time
+                className="text-xs font-normal md:text-base text-primary-foreground"
+                dateTime={
+                  news.updated_at > news.published_at
+                    ? news.updated_at
+                    : news.published_at
+                }
+              >
+                {new Date(
+                  news.updated_at > news.published_at
+                    ? news.updated_at
+                    : news.published_at
+                )
+                  .toLocaleDateString("id-ID", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "numeric",
+                  })
+                  .replace("pukul", ",")}{" "}
+                WIB
+              </time>
+            </div>
+
             <ShareButton />
           </div>
         </div>
