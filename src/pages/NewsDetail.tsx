@@ -1,7 +1,6 @@
 import Loader from "@/components/custom/loader";
 import RenderNewsContent from "@/components/custom/render-news-content";
 import { useGetArticleDetail } from "@/hooks/useGetDetailArticles";
-import { Share2 } from "lucide-react";
 import { useParams } from "react-router-dom";
 import RelatedTags from "@/components/custom/related-tags";
 import RelatedArticles from "@/components/custom/related-articles";
@@ -13,6 +12,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import ArticleComments from "@/components/custom/article-comments";
+import ShareButton from "@/components/custom/share-button";
 
 function NewsDetail() {
   const { news_id, news_title } = useParams();
@@ -60,19 +60,18 @@ function NewsDetail() {
                 news?.updated_at > news?.published_at
                   ? news?.updated_at
                   : news?.published_at
-              ).toLocaleDateString("id-ID", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+              )
+                .toLocaleDateString("id-ID", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                })
+                .replace("pukul", ",")}{" "}
+              WIB
             </time>
-            <button className="flex gap-2 text-xs font-normal text-primary-foreground md:text-base">
-              Share{" "}
-              <Share2
-                fill="#667697"
-                className="h-[14px] aspect-square md:h-6"
-              />
-            </button>
+            <ShareButton />
           </div>
         </div>
 
@@ -91,7 +90,7 @@ function NewsDetail() {
               <img
                 src={news.image_url}
                 alt="image"
-                className="w-full rounded-[8px] h-[200px] md:h-[450px] object-cover"
+                className="w-full rounded-[8px] h-[200px] md:h-[450px] object-contain bg-secondary-foreground"
               />
             )}
           </>

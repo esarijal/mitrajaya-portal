@@ -1,17 +1,17 @@
+import { useGetRegionList } from "@/hooks/useGetRegionList";
 import { Badge } from "../ui/badge";
-import { useGetProvinceWithArticles } from "@/hooks/useGetProvinceWithArticles";
 
 function ProvinceTags({
   color = "primary",
 }: {
   color?: "primary" | "secondary";
 }) {
-  const { data: provinceTags } = useGetProvinceWithArticles();
+  const { data: provinceTags } = useGetRegionList({});
 
   return (
     provinceTags &&
     provinceTags.length > 0 && (
-      <div className="min-w-[360px] space-y-7">
+      <div className="min-w-[360px] lg:w-[360px] space-y-7">
         <h2
           className={
             color === "primary" ? "text-primary" : "text-secondary-foreground"

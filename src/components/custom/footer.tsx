@@ -6,12 +6,8 @@ function Footer() {
       <div className="flex flex-col gap-6 md:flex-row md:justify-between ">
         <div className="space-y-4 md:max-w-[300px]">
           <div className="flex items-center gap-2">
-            <img src="/logo-1.png" alt="" className="h-5 md:h-12" />
             <h1 className="flex flex-col text-lg font-bold leading-tight uppercase text-start text-[#eab723]">
-              Mitra Jaya{" "}
-              <span className="text-xs font-semibold text-[#e4cc4c]">
-                PORTAL
-              </span>
+            B E D A S U D U T P A N D A N G . I D
             </h1>
           </div>
           <p className="text-sm text-primary-foreground">

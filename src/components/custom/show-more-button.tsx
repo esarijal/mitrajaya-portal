@@ -42,7 +42,7 @@ function ShowMoreButton({
           Tampilkan Berita Lainnya
         </Button>
       )}
-
+      &nbsp;
       {pageSize > 5 && (
         <Button
           onClick={() => setPageSize(5)}

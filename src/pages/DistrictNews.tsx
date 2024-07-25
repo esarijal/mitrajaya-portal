@@ -13,7 +13,11 @@ function DistrictNews() {
   const { district_name, district_id } = useParams();
   const [pageSize, setPageSize] = useState(5);
 
-  const { data: districtNews, isLoading } = useGetDistrictLatestArticles({
+  const {
+    data: districtNews,
+    isLoading,
+    isSuccess,
+  } = useGetDistrictLatestArticles({
     districtID: district_id as string,
     page: 1,
     pageSize,
@@ -62,9 +66,20 @@ function DistrictNews() {
             />
           </div>
         )}
+
+        {isSuccess && districtNews && !districtNews.data && (
+          <div className="flex flex-col w-full gap-4 md:gap-8">
+            <h3 className="text-xl font-medium text-white">Belum Ada Berita</h3>
+            <p className="text-primary-foreground">
+              Tidak ada berita di lokasi ini. Coba ganti lokasi untuk melihat
+              berita dari daerah lain.
+            </p>
+          </div>
+        )}
+
         <div className="flex flex-col flex-1 gap-8">
-          <RecommendedTags />
           <SubDistrictTags />
+          <RecommendedTags />
         </div>
       </div>
     </div>

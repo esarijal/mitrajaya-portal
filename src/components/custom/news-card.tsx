@@ -23,9 +23,13 @@ const NewsCard = ({
 
   const handleOnClick = () => {
     if (url.pathname.includes("/daerah")) {
-      window.location.href = `/detail-berita${url.pathname}/${id}/${title}`;
+      window.location.href = `/detail-berita${url.pathname}/${id}/${
+        title || "bedasudutpandang"
+      }`;
     } else {
-      window.location.href = `/detail-berita/${id}/${title}`;
+      window.location.href = `/detail-berita/${id}/${
+        title || "bedasudutpandang"
+      }`;
     }
   };
 
@@ -50,11 +54,16 @@ const NewsCard = ({
             className="text-xs font-normal md:text-base text-primary-foreground"
             dateTime={date}
           >
-            {new Date(date).toLocaleDateString("id-ID", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {new Date(date)
+              .toLocaleDateString("id-ID", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+              })
+              .replace("pukul", ",")}{" "}
+            WIB
           </time>
         </div>
         {/* Image or Video Element */}
@@ -121,11 +130,16 @@ const NewsCard = ({
             className="text-xs font-normal text-primary-foreground md:text-sm"
             dateTime={date}
           >
-            {new Date(date).toLocaleDateString("id-ID", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {new Date(date)
+              .toLocaleDateString("id-ID", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+              })
+              .replace("pukul", ",")}{" "}
+            WIB
           </time>
         </div>
       </div>
@@ -159,7 +173,7 @@ const NewsCard = ({
             )}
           </>
         )}
-        <div className="flex flex-col space-y-2 md:space-y-4">
+        <div className="flex flex-col flex-1 space-y-2 md:space-y-4">
           <h1 className="text-base font-medium text-primary md:text-xl group-hover:underline group-hover:text-active">
             {title}
           </h1>
@@ -170,11 +184,16 @@ const NewsCard = ({
             className="font-copy text-[11px]  font-normal md:text-sm text-primary-foreground"
             dateTime={date}
           >
-            {new Date(date).toLocaleDateString("id-ID", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {new Date(date)
+              .toLocaleDateString("id-ID", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+              })
+              .replace("pukul", ",")}{" "}
+            WIB
           </time>
         </div>
       </div>

@@ -1,21 +1,23 @@
 import { createRegionalTagsUrl } from "@/lib/utils";
 import { Badge } from "../ui/badge";
 import { useParams } from "react-router-dom";
-import { useGetSubdistrictWithArticles } from "@/hooks/useGetSubdistrictWithArticles";
+import { useGetRegionList } from "@/hooks/useGetRegionList";
 
 function SubDistrictTags({
   color = "primary",
 }: {
   color?: "primary" | "secondary";
 }) {
-  const { district_id } = useParams();
+  const { district_id, prov_id, city_id } = useParams();
 
-  const { data: subdistrictTags } = useGetSubdistrictWithArticles({
-    districtID: district_id as string,
+  const { data: subdistrictTags } = useGetRegionList({
+    prov_id: prov_id as string,
+    city_id: city_id as string,
+    district_id: district_id as string,
   });
 
   return (
-    <div className="min-w-[360px] space-y-7">
+    <div className="min-w-[360px] lg:w-[360px] space-y-7">
       <h2
         className={
           color === "primary" ? "text-primary" : "text-secondary-foreground"
