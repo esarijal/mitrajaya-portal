@@ -36,6 +36,7 @@ function ViralNews({ news }: { news: ArticleType[] | undefined }) {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
+                    timeZone: "UTC",
                   })}
                 </time>
               </div>

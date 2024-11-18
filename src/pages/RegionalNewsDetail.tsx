@@ -81,6 +81,7 @@ function RegionalNewsDetail() {
                     day: "numeric",
                     hour: "numeric",
                     minute: "numeric",
+                    timeZone: "UTC",
                   })
                   .replace("pukul", ",")}{" "}
                 WIB

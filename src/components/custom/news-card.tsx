@@ -61,6 +61,7 @@ const NewsCard = ({
                 day: "numeric",
                 hour: "numeric",
                 minute: "numeric",
+                timeZone: "UTC",
               })
               .replace("pukul", ",")}{" "}
             WIB
@@ -137,6 +138,7 @@ const NewsCard = ({
                 day: "numeric",
                 hour: "numeric",
                 minute: "numeric",
+                timeZone: "UTC",
               })
               .replace("pukul", ",")}{" "}
             WIB
@@ -191,6 +193,7 @@ const NewsCard = ({
                 day: "numeric",
                 hour: "numeric",
                 minute: "numeric",
+                timeZone: "UTC",
               })
               .replace("pukul", ",")}{" "}
             WIB
