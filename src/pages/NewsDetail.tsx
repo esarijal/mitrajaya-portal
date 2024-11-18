@@ -72,12 +72,13 @@ function NewsDetail() {
                     ? news?.updated_at
                     : news?.published_at
                 )
-                  .toLocaleDateString("id-ID", {
+                  .toLocaleString("id-ID", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
                     hour: "numeric",
                     minute: "numeric",
+                    timeZone: "UTC",
                   })
                   .replace("pukul", ",")}{" "}
                 WIB

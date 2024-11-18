@@ -62,6 +62,7 @@ function ArticleComments({ articleID }: { articleID: number | undefined }) {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
+                  timeZone: "UTC",
                 })}
               </time>
               <p className="text-sm md:text-base">{comment.content}</p>
