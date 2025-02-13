@@ -49,7 +49,7 @@ function RegionalNewsDetail() {
       <article className="space-y-6 md:space-y-10">
         {/* title */}
         <div className="space-y-6 md:space-y-8">
-          <h1 className="text-xl font-semibold md:text-4xl">{news.title}</h1>
+          <h1 className="text-xl font-semibold md:text-4xl">{decodeURIComponent(news.title)}</h1>
           <div className="flex items-center justify-between px-2 py-4 border-y border-[#DDE2EE] md:py-5 md:px-5">
             <div className="flex flex-col gap-2 md:flex-row">
               {news.author_name && (

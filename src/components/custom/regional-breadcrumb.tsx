@@ -43,10 +43,10 @@ function RegionalBreadcrumb({
       titles.push({ region: "district", title: district_name });
     if (subdistrict_name)
       titles.push({ region: "subdistrict", title: subdistrict_name });
-    if (news_title) titles.push({ region: "news", title: news_title });
+    if (news_title) titles.push({ region: "news", title: decodeURIComponent(news_title) });
 
     setPathTitle(titles);
-  }, [prov_name, city_name, district_name, subdistrict_name, news_title]);
+  }, [prov_name, city_name, district_name, subdistrict_name, decodeURIComponent(news_title)]);
 
   const createUrl = (region: PathTitle["region"]) => {
     switch (region) {

@@ -11,7 +11,7 @@ function ViralNews({ news }: { news: ArticleType[] | undefined }) {
             <a
               key={item.id}
               className="flex gap-3 cursor-pointer group"
-              href={`/detail-berita/${item.id}/${item.title}`}
+              href={`/detail-berita/${item.id}/${encodeURIComponent(item.title)}`}
             >
               <div className="h-6 mt-1 aspect-square bg-[#DC0000] text-center rounded">
                 <p className="text-primary">{index + 1}</p>
