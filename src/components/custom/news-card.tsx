@@ -24,11 +24,11 @@ const NewsCard = ({
   const handleOnClick = () => {
     if (url.pathname.includes("/daerah")) {
       window.location.href = `/detail-berita${url.pathname}/${id}/${
-        title || "bedasudutpandang"
+        encodeURIComponent(title) || "bedasudutpandang"
       }`;
     } else {
       window.location.href = `/detail-berita/${id}/${
-        title || "bedasudutpandang"
+        encodeURIComponent(title) || "bedasudutpandang"
       }`;
     }
   };
@@ -44,7 +44,7 @@ const NewsCard = ({
         <div className="flex flex-col justify-between gap-2">
           <div className="flex flex-col w-full space-y-2 md:space-y-3">
             <h1 className="text-base font-medium line-clamp-3 md:text-[32px] text-primary leading-snug group-hover:underline group-hover:text-active">
-              {title}
+              {decodeURIComponent(title)}
             </h1>
             <h2 className="hidden text-xs font-normal md:text-base text-primary-foreground md:line-clamp-2">
               {convertHtmlToPlainText(subHeading)}
@@ -125,7 +125,7 @@ const NewsCard = ({
               color === "primary" ? "text-primary" : "text-secondary-foreground"
             } group-hover:underline group-hover:text-active`}
           >
-            {title}
+            {decodeURIComponent(title)}
           </h1>
           <time
             className="text-xs font-normal text-primary-foreground md:text-sm"
@@ -177,7 +177,7 @@ const NewsCard = ({
         )}
         <div className="flex flex-col flex-1 space-y-2 md:space-y-4">
           <h1 className="text-base font-medium text-primary md:text-xl group-hover:underline group-hover:text-active">
-            {title}
+            {decodeURIComponent(title)}
           </h1>
           <h2 className="hidden text-base font-normal md:line-clamp-2 text-primary-foreground ">
             {convertHtmlToPlainText(subHeading)}
