@@ -38,7 +38,7 @@ function NewsDetail() {
               href="/#"
               className="font-semibold text-secondary-foreground md:max-w-[500px] max-w-[200px] truncate text-ellipsis overflow-clip"
             >
-              {decodeURIComponent(news_title)}
+              {decodeURIComponent(news_title ?? "")}
             </BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
